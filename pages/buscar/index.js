@@ -7,6 +7,8 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import Lenders from '../../components/Search/Lenders';
 import { useFetchUser } from '../../lib/AuthContext';
 import SkeletonsLendes from '../../components/Search/SkeletonsLendes';
+
+
 export default function Search({ lenders, numberOfLenders }) {
     const { user, loading } = useFetchUser()
     const [lendersList, setlenders] = useState(lenders)
@@ -18,7 +20,11 @@ export default function Search({ lenders, numberOfLenders }) {
         })
         setlenders(lenders => [...lenders, ...newlenders])
     }
-    let rows = [], i = 0, len = (numberOfLenders - lendersList.length) < 6 ? (numberOfLenders - lendersList.length) : 6;
+    let rows = [], i = 0, len = 0;
+    if (lendersList?.length) {
+        len = (numberOfLenders - lendersList?.length)
+            < 6 ? (numberOfLenders - lendersList?.length) : 6;
+    }
     while (++i <= len) rows.push(i);
     return (
         <StaticLayout title='Buscar' descripcion='busqueda de todos los prestadores' user={user} loading={loading}>
