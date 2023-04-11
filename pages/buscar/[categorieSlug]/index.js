@@ -92,6 +92,7 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
     const { data: { data: categories } } = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/categories`)
+    console.log(categories)
 
     const paths = categories.map((categorie) => ({
         params: { categorieSlug: categorie.attributes.Slug },

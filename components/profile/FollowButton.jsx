@@ -6,22 +6,23 @@ import axios from "axios";
 import { getTokenFromLocalCookie } from "../../lib/auth";
 import Spinner from "../elements/Spinner";
 import { UseLayoutSocket } from "../../context/LayoutContext";
+import { useRouter } from "next/router";
 
 export default function FollowButton({ user, currentUser }) {
     const [followRequest, setfollowRequest] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const jwt = getTokenFromLocalCookie()
+    const router = useRouter
     const { socket } = UseLayoutSocket();
     const qs = require('qs');
     const query = qs.stringify({
         filters: {
-            followerUser: user.id,
+            followerUser: user?.id,
             followingUser: currentUser.id,
         },
     }, {
         encodeValuesOnly: true, // prettify URL
     });
-
     const { isLoading: followIsLoanding } = useQuery(
         ["following", currentUser.id],
         async () => {
@@ -33,6 +34,7 @@ export default function FollowButton({ user, currentUser }) {
             return data;
         },
         {
+            enabled: Boolean(jwt),
             onSuccess: ({ data }) => {
                 if (data.length > 0) {
                     setfollowRequest(data[0])
@@ -153,9 +155,20 @@ export default function FollowButton({ user, currentUser }) {
             </button>
         )
     }
+    if (!user) {
+        return (
+            !user && <button className="flex justify-center bg-blue-500
+                         text-gray-50 px-4 py-2 rounded-md focus:outline-none items-center"
+                onClick={() => router.push("/login")}
+            >
+                Seguir
+            </button>)
+
+    }
 
     return (
         <div className="relative">
+
             {followIsLoanding ?
                 <div className="flex justify-center bg-blue-500
                          text-gray-50 px-4 py-2 rounded-md focus:outline-none items-center">
