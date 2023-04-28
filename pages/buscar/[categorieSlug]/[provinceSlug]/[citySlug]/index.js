@@ -90,7 +90,7 @@ export async function getStaticProps({ params }) {
         props: {
             lenders, numberOfLenders, categorieSlug, citySlug
         },
-        revalidate: 120,
+        revalidate: 10,
     };
 }
 

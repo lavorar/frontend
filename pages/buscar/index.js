@@ -70,6 +70,6 @@ export async function getStaticProps({ req }) {
         props: {
             lenders, numberOfLenders
         },
-        revalidate: 120,
+        revalidate: 10,
     };
 }
