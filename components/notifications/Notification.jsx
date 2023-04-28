@@ -4,6 +4,7 @@ import CircleRoundedIcon from '@mui/icons-material/CircleRounded';
 import Avatar from '../elements/Avatar';
 import moment from 'moment';
 import { formatMyDate, handleAceptService, markAsNotRead, markAsRead } from '../../lib/apiNotifications'
+import { concatUserName } from '../../lib/utils';
 
 
 
@@ -47,7 +48,7 @@ export default function Notification({ user, notification, type, handleCountUnRe
                     <div className='flex items-center'>
                         <Avatar width={48} fontSize={'medium'} desktopWidth={48} user={user} />
                         <div className='flex w-full flex-row justify-between items-center'>
-                            <DateNotification>{user.name + ' te mando una solicitud de seguimiento'} </DateNotification>
+                            <DateNotification>{user?.firstName + '' + user?.lastName + ' te mando una solicitud de seguimiento'} </DateNotification>
                             <ReadButtonNotifications />
                         </div>
                     </div>
@@ -57,7 +58,7 @@ export default function Notification({ user, notification, type, handleCountUnRe
                     <div className='flex items-center'>
                         <Avatar width={48} fontSize={'medium'} desktopWidth={48} user={notification.user_request} />
                         <div className='flex w-full flex-row justify-between items-center'>
-                            <DateNotification>{user.name + ' Acepto tu solicitud, ahora puedes reseñarlo'} </DateNotification>
+                            <DateNotification>{concatUserName(user) + ' Acepto tu solicitud, ahora puedes reseñarlo'} </DateNotification>
                             <ReadButtonNotifications />
                         </div>
                     </div>
@@ -67,7 +68,7 @@ export default function Notification({ user, notification, type, handleCountUnRe
                     <div className='flex items-center'>
                         <Avatar width={48} fontSize={'medium'} desktopWidth={48} user={notification.user_request} />
                         <div className='flex w-full flex-row justify-between items-center'>
-                            <DateNotification>{user.name + ' te ha puntuado con ' + notification.score + ' estrellas'} </DateNotification>
+                            <DateNotification>{concatUserName(user) + ' te ha puntuado con ' + notification.score + ' estrellas'} </DateNotification>
                             <ReadButtonNotifications />
                         </div>
                     </div>

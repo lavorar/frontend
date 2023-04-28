@@ -59,7 +59,7 @@ export default function FollowButton({ user, currentUser }) {
                     data.review_updatedAt = new Date()
                     data.sender = user.id
                     const userSubset = {
-                        name: user.name,
+                        name: concatUserName(user),
                         firstName: user.firstName,
                         lastName: user.lastName,
                         avatar: user.avatar,
@@ -89,7 +89,7 @@ export default function FollowButton({ user, currentUser }) {
                 data.sender = user.id
                 console.log(user)
                 const userSubset = {
-                    name: user.name,
+                    name: concatUserName(user),
                     firstName: user.firstName,
                     lastName: user.lastName,
                     avatar: user.avatar,

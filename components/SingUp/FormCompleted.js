@@ -51,7 +51,7 @@ export default function FormCompleted() {
             staleTime: Infinity
         }
     )
-    // console.log(queryprovince)    
+    // console.log(queryprovince)
 
 
 
@@ -59,7 +59,7 @@ export default function FormCompleted() {
 
 
     const getCity = async () => {
-        // console.log('ciudad form', cityForm)  
+        // console.log('ciudad form', cityForm)
         let response = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_URL}/citys1/${cityForm.slug}`)
             .then(({ data }) => {
                 return data.data
@@ -81,7 +81,7 @@ export default function FormCompleted() {
         getCity,
         {
             onSettled: (data) => {
-                // console.log('datos a actualizar', datos)                
+                // console.log('datos a actualizar', datos)
                 setdatos({ ...datos, localidad: data })
             },
             enabled: Boolean(queryprovince.isSuccess),
@@ -114,7 +114,7 @@ export default function FormCompleted() {
                 setToken(data);
                 // console.log('datos id', data.user)
                 setdatos({ ...datos, id: data.user.id, jwt: data.jwt })
-                let slug = slugify(data.user.name + ' ' + data.user.id)
+                let slug = slugify(concatUserName(data.user) + ' ' + data.user.id)
                 let role = JSON.stringify({
                     "role": {
                         "id": 3

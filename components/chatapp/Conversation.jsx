@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import React from 'react'
 import Avatar from '../elements/Avatar'
 import CircleRoundedIcon from '@mui/icons-material/CircleRounded';
+import { concatUserName } from '../../lib/utils';
 
 const Conversation = ({ user, conversationid, lastmessage }) => {
     const router = useRouter()
@@ -17,7 +18,7 @@ const Conversation = ({ user, conversationid, lastmessage }) => {
                         <Avatar user={user} width={32} desktopWidth={64} fontSize={'large'} />
 
                         <div className="div flex flex-col">
-                            <span className="conversationName font-bold text-xl">{user.name}</span>
+                            <span className="conversationName font-bold text-xl">{concatUserName(user)}</span>
                             <span className="conversationName font-normal text-md">{lastmessage?.text}</span>
                         </div>
                         {

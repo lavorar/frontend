@@ -15,7 +15,7 @@ export default function SendMessageButton({ lender }) {
                 userReciever: JSON.stringify({
                     id: lender?.id,
                     slug: lender?.slug,
-                    name: lender?.name,
+                    name: lender?.firstName + ' ' + lender?.lastName,
                     avatar: lender?.avatar,
                     firstName: lender?.firstName,
                     lastName: lender?.lastName,
