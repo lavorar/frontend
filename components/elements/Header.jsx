@@ -127,9 +127,9 @@ const Header = ({ staticLayout }) => {
        text-gray-900   dark:text-white-ghost dark:bg-opacity-95  backdrop-blur px-2 sm:px-4 p-0 sticky w-full z-50 top-0 py-1 left-0`}>
         <div className={`container relative max-w-7xl flex ${staticLayout ? 'justify-between' : 'justify-between md:justify-end'}  h-16 items-center mx-auto `}>
           <Link href="/"  >
-            <div className={`${staticLayout ? 'flex items-center' : 'flex items-center md:hidden'}`}>
-              <Image src="/v1677013286/laboraricon.png" width={64} height={64} className="mr-2 w-11" alt="LAvorar Logo" />
-              <span className={"self-center hidden md:block text-xl font-semibold whitespace-nowrap dark:text-white"}>Lavorar</span>
+            <div className={`${staticLayout ? 'flex items-end w-36' : 'flex items-center md:hidden'}`}>
+              <Image src="/v1682460940/logo-hotizontal.png" height={150} width={434} className="mr-2 w-11" alt="LAvorar Logo" />
+              {/* <span className={" hidden md:block text-xl font-semibold whitespace-nowrap dark:text-white"}>aburar</span> */}
             </div>
           </Link>
           <div className="flex md:order-2 items-center ">

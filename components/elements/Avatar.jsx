@@ -38,7 +38,7 @@ const Avatar = ({ width, desktopWidth, fontSize, user, other }) => {
                     <div className={` h-${width / 4} w-${width / 4} md:w-${desktopWidth / 4} md:h-${desktopWidth / 4} aspect-square cursor-pointer`}
                     // onClick={router.replace( '/prestadores/' + user?.Slug )}
                     >
-                        <BackgroundLetterAvatars fontSize={` ${fontSize ? fontSize : "xxx-large "}`} firtsName={user?.firstName ? user?.firstName : 'Jhon'} lastName={user?.lastName ? user?.lastName : 'Doe'} />
+                        <BackgroundLetterAvatars fontSize={` ${fontSize ? fontSize : "xxx-large "}`} user={user} />
                     </div>
 
 

@@ -10,6 +10,7 @@ import Review from '../rating/Review'
 import VerifiedIcon from "@mui/icons-material/Verified";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import Image from 'next/image'
+import { concatUserName } from '../../lib/utils'
 
 
 const ContratadosComponent = ({ authUser, user, services }) => {
@@ -76,8 +77,8 @@ const ContratadosComponent = ({ authUser, user, services }) => {
                                                 >
                                                     <Image
                                                         src={`/f_auto,q_auto,w_80,h_80/v${serv?.lender.avatar}`}
-                                                        alt={"Picture of the user " + serv?.lender?.name}
-                                                        layout="fill" // required                   
+                                                        alt={"Picture of the user " + concatUserName(serv?.lender)}
+                                                        layout="fill" // required
                                                         objectFit="cover"// change to suit your needs
                                                         className="rounded-full w-full"
                                                         loading="eager"
@@ -100,7 +101,7 @@ const ContratadosComponent = ({ authUser, user, services }) => {
                                     <div className="flex flex-col justify-self-start">
                                         <Link href={`/${serv.lender?.Slug}`}>
                                             <a className="text-xl text-center lg:text-left ">
-                                                {serv?.lender.name}
+                                                {concatUserName(serv?.lender)}
                                                 <VerifiedIcon sx={{ fontSize: 30 }} className="ml-2" />
                                             </a>
                                         </Link>

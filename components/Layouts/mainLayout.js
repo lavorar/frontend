@@ -40,7 +40,7 @@ const Layout = ({ user, loading = false, children, }) => {
                 <meta name="msapplication-TileColor" content="#da532c" />
                 <meta name="theme-color" content="#ffffff" />
                 <link width="50" rel="icon" type="image/svg+xml" href="/Lavorar-logo-negativo.svg" />
-                <title>Lavorar</title>
+                <title>Laburar</title>
             </Head>
 
 

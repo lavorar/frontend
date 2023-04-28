@@ -38,7 +38,10 @@ export default function Home({ lenders }) {
 
 export async function getStaticProps({ req }) {
 
-  const lenders = await getLenders(6)
+  const lenders = await getLenders({
+    limit: 6,
+    populate: ['provincia', 'localidad']
+  })
   return {
     props: {
       lenders

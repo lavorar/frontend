@@ -6,7 +6,7 @@ import Header from '../elements/Header'
 import Card from '../elements/Card'
 import NavMobile from '../elements/NavMobile'
 
-export default function StaticLAuout({ user, loading = false, title = 'Lavorar', description = 'Plataforma web para encontrar y contratar prestadores de servicios', children }) {
+export default function StaticLAuout({ user, loading = false, title = 'Laburar', description = 'Plataforma web para encontrar y contratar prestadores de servicios', children }) {
     return (
         <UserProvider value={{ user, loading }}>
             <Head>
@@ -18,7 +18,7 @@ export default function StaticLAuout({ user, loading = false, title = 'Lavorar',
                 <meta name="msapplication-TileColor" content="#da532c" />
                 <meta name="theme-color" content="#ffffff" />
                 <meta name="description" content={description} />
-                <link width="50" rel="icon" type="image/svg+xml" href="/Lavorar-logo-negativo.svg" />
+                <link width="50" rel="icon" type="image/svg+xml" href="/android-chrome-512x512.png" />
                 <title>{title}</title>
             </Head>
 

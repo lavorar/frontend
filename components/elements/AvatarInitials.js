@@ -3,8 +3,8 @@ import Avatar from '@mui/material/Avatar';
 
 
 
-function stringAvatar(firtsName, lastName, width, fontSize) {
-    const name = firtsName + lastName
+function stringAvatar(user, width, fontSize) {
+    const { firstName, lastName } = user
     return {
         sx: {
             width: '100%',
@@ -14,12 +14,14 @@ function stringAvatar(firtsName, lastName, width, fontSize) {
             color: "#111827"
 
         },
-        children: `${firtsName.split(' ')[0][0].toUpperCase()}${lastName.split(' ')[0][0].toUpperCase()}`,
+        children: `${firstName ? firstName.split(' ')[0][0].toUpperCase() : ''}${lastName ? lastName.split(' ')[0][0].toUpperCase() : ''}`,
     };
 }
 
-export default function BackgroundLetterAvatars({ firtsName, lastName, width, fontSize }) {
+export default function BackgroundLetterAvatars({ user, width, fontSize }) {
     return (
-        <Avatar   {...stringAvatar(firtsName, lastName, width, fontSize)} />
+        <Avatar   {...stringAvatar(user, width, fontSize)} />
     );
 }
+
+// 1670336953/55
