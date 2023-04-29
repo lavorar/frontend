@@ -51,7 +51,7 @@ const MyProfileComponent = ({ user }) => {
                                                 <Image
                                                     src={`/f_auto,q_auto,w_150,h_150/v${user.avatar}`}
                                                     alt={"Picture of the user " + user?.name}
-                                                    layout="fill" // required                   
+                                                    layout="fill" // required
                                                     objectFit="cover"// change to suit your needs
                                                     className="rounded-full w-full"
                                                 // quality={100} // just an example
@@ -62,7 +62,7 @@ const MyProfileComponent = ({ user }) => {
                                             <div className=" -mt-8 h-[100px] w-[100px] md:w-[150px] md:h-[150px] aspect-square cursor-pointer"
                                             // onClick={router.replace( '/prestadores/' + user?.Slug )}
                                             >
-                                                <BackgroundLetterAvatars fontSize='xxx-large' firtsName={user?.firstName} lastName={user?.lastName} />
+                                                <BackgroundLetterAvatars fontSize='xxx-large' user={user} />
                                             </div>
                                     }
                                     {/* {user.avatar ? (

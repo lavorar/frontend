@@ -39,7 +39,7 @@ const PendingComponent = ({ user, pendingHire }) => {
                                                     <Image
                                                         src={`/f_auto,q_auto,w_80,h_80/v${hire?.user.avatar}`}
                                                         alt={"Picture of the user " + hire?.user?.name}
-                                                        layout="fill" // required                   
+                                                        layout="fill" // required
                                                         objectFit="cover"// change to suit your needs
                                                         className="rounded-full w-full"
                                                         loading="eager"
@@ -54,7 +54,7 @@ const PendingComponent = ({ user, pendingHire }) => {
                                                 <a className="  w-[80px] h-[80px] aspect-square cursor-pointer"
                                                 // onClick={router.replace( '/prestadores/' + user?.Slug )}
                                                 >
-                                                    <BackgroundLetterAvatars fontSize='xxx-large' firtsName={hire?.user?.firstName} lastName={hire?.user?.lastName} />
+                                                    <BackgroundLetterAvatars fontSize='xxx-large' user={hire?.user} />
                                                 </a>
                                             </Link>
 

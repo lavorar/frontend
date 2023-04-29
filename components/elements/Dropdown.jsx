@@ -16,7 +16,7 @@ import Image from 'next/image';
 // import { useNavigate } from 'react-router-dom';
 
 export default function Example({ children, user }) {
-    // const { user, logout, loading } = useAuth();  
+    // const { user, logout, loading } = useAuth();
     const router = useRouter()
     const handleLogout = async () => {
         unsetToken();
@@ -61,7 +61,7 @@ export default function Example({ children, user }) {
                                                         <Image
                                                             src={`/v${user.avatar}`}
                                                             alt={"Picture of the lender " + user?.name}
-                                                            layout="fill" // required                   
+                                                            layout="fill" // required
                                                             objectFit="cover" // change to suit your needs
                                                             className="rounded-full w-full" // just an example
                                                         />
@@ -70,7 +70,7 @@ export default function Example({ children, user }) {
                                                     <div className="h-[50px] w-[50px] cursor-pointer aspect-square  mr-5"
                                                     // onClick={router.replace( '/prestadores/' + lender?.Slug )}
                                                     >
-                                                        <BackgroundLetterAvatars fontSize='large' firtsName={user?.firstName} lastName={user?.lastName} />
+                                                        <BackgroundLetterAvatars fontSize='large' user={user} />
                                                     </div>}{
                                                     user?.name
                                                 }

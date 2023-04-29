@@ -52,7 +52,7 @@ const ProfileComponent = ({ userServer }) => {
                                     <Image
                                         src={image}
                                         alt={"Picture of the user " + currentUser?.name}
-                                        layout="fill" // required                   
+                                        layout="fill" // required
                                         objectFit="cover"// change to suit your needs
                                         className="rounded-full w-full"
                                         loading="eager"
@@ -65,7 +65,7 @@ const ProfileComponent = ({ userServer }) => {
                                 <div className="-mt-24  w-[150px] h-[150px] aspect-square cursor-pointer"
                                 // onClick={router.replace( '/prestadores/' + user?.Slug )}
                                 >
-                                    <BackgroundLetterAvatars fontSize='xxx-large' firtsName={currentUser?.firstName} lastName={currentUser?.lastName} />
+                                    <BackgroundLetterAvatars fontSize='xxx-large' user={currentUser} />
                                 </div>
 
                         }

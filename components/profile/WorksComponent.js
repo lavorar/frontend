@@ -74,7 +74,7 @@ const ContratadosComponent = ({ authUser, user, services }) => {
                                                     <Image
                                                         src={`/f_auto,q_auto,w_80,h_80,c_fill,ar_1:1/v${serv?.users_recruiter.avatar}`}
                                                         alt={"Picture of the user " + serv?.users_recruiter?.name}
-                                                        layout="fill" // required                   
+                                                        layout="fill" // required
                                                         objectFit="cover"// change to suit your needs
                                                         className="rounded-full w-full"
                                                         loading="eager"
@@ -89,7 +89,7 @@ const ContratadosComponent = ({ authUser, user, services }) => {
                                                 <a className="   w-[80px] h-[80px] aspect-square cursor-pointer"
                                                 // onClick={router.replace( '/' + user?.Slug )}
                                                 >
-                                                    <BackgroundLetterAvatars fontSize='xxx-large' firtsName={serv?.users_recruiter?.firstName} lastName={serv?.users_recruiter?.lastName} />
+                                                    <BackgroundLetterAvatars fontSize='xxx-large' user={serv?.users_recruiter} />
                                                 </a>
                                             </Link>
 

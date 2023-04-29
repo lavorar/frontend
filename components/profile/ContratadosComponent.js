@@ -93,7 +93,7 @@ const ContratadosComponent = ({ authUser, user, services }) => {
                                                 <a className="   w-[80px] h-[80px] aspect-square cursor-pointer"
                                                 // onClick={router.replace( '/' + user?.Slug )}
                                                 >
-                                                    <BackgroundLetterAvatars fontSize='xxx-large' firtsName={serv?.lender?.firstName} lastName={serv?.lender?.lastName} />
+                                                    <BackgroundLetterAvatars fontSize='xxx-large' user={serv?.lender} />
                                                 </a>
                                             </Link>
 

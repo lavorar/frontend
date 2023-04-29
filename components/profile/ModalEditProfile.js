@@ -259,7 +259,7 @@ export default function MyModal({ isOpen, setIsOpen, userClient, setImage, image
                 // if (img === null || img === image) {
                 //     router.reload('/profile')
                 // }
-                // // router.reload('/profile')                
+                // // router.reload('/profile')
             }).catch((error) => {
                 console.log(error)
             });
@@ -342,7 +342,7 @@ export default function MyModal({ isOpen, setIsOpen, userClient, setImage, image
                                                             >
                                                                 <Image
                                                                     alt={"Picture of the user " + user?.name}
-                                                                    layout="fill" // required                   
+                                                                    layout="fill" // required
                                                                     objectFit="cover" // change to suit your needs
                                                                     className="rounded-full w-full"
                                                                     src={img}
@@ -389,8 +389,7 @@ export default function MyModal({ isOpen, setIsOpen, userClient, setImage, image
                                                         >
                                                             <BackgroundLetterAvatars
                                                                 width={80} fontSize='xx-large'
-                                                                firtsName={user?.firstName}
-                                                                lastName={user?.lastName}
+                                                                user={user}
                                                             />
                                                             <div className="absolute bottom-0 left-14">
                                                                 <AddAPhoto />
@@ -536,7 +535,7 @@ export default function MyModal({ isOpen, setIsOpen, userClient, setImage, image
                                                         />
                                                     )}
 
-                                                    // 
+                                                    //
                                                     name="localidad"
                                                     control={control}
                                                 />
