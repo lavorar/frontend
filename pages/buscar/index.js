@@ -63,7 +63,7 @@ export async function getStaticProps({ req }) {
 
     const lenders = await getLenders({
         limit: 6,
-        populate: ['provincia', 'localidad', 'categories']
+        populate: ['provincia', 'localidad']
     })
     const numberOfLenders = await getNumberOfLenders([])
     return {

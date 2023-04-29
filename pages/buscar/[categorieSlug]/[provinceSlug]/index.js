@@ -81,7 +81,7 @@ export async function getStaticProps({ params }) {
         provinceSlug: provinceSlug,
         categorieSlug: categorieSlug,
         limit: 6,
-        populate: ['provincia', 'localidad', 'categories']
+        populate: ['provincia', 'localidad']
     })
     const numberOfLenders = await getNumberOfLenders({ categorieSlug: categorieSlug, provinceSlug: provinceSlug })
     return {
