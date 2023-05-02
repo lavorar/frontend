@@ -21,6 +21,7 @@ import { getProvincesArgentina } from '../../components/SingUp/LenderOptions';
 import SendMessageButton from '../../components/chatapp/SendMessageButton';
 import FollowButton from '../../components/profile/FollowButton';
 import ProfileComponent from '../../components/profile/ProfileComponent';
+import { concatUserName } from '../../lib/utils';
 
 
 const Profile = ({ user, currentUser, userReview }) => {
@@ -105,7 +106,7 @@ const Profile = ({ user, currentUser, userReview }) => {
         setIsOpen(true)
     }
     return (
-        <Layout user={user}>
+        <Layout title={`${concatUserName(userClient)} | Laburar`} user={user}>
             <ProfileComponent userServer={currentUser} />
 
             <TabsProfile authUser={user} selectedIndex={selectedIndex} setselectedIndex={setselectedIndex} user={userClient} userReview={userReview} />
