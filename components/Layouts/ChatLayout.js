@@ -71,20 +71,18 @@ const Layout = ({ user, loading = false, children }) => {
 
 
                         <Link href={'/'}>
-                            <a
-                                className=" cursor-pointer flex flex-row gap-x-2 justify-center items-center xl:pl-2 ">
-                                <img
-                                    src="/Lavorar-logo-negativo.svg"
-                                    className={`  w-11 xl:w-16  "
-                                    `}
-                                />
+                            <>
+                                <a
+                                    className=" cursor-pointer  xl:ml-4 w-32 hidden xl:flex">
+                                    <Image src="/v1682985275/laburar-logo-horizontal.png" height={150} width={434} className={`flex items-center md:hidden cursor-pointer`} alt="Laburar Logo" />
 
-                                <h1
-                                    className={`text-orange-brand origin-left hidden xl:block font-medium text-xl duration-200 $`}
-                                >
-                                    Laborar
-                                </h1>
-                            </a>
+                                </a>
+                                <a
+                                    className=" cursor-pointer ml-2 w-32 xl:hidden ">
+                                    <Image src="/v1682460739/isologo-laborar.png" height={44} width={44} className={`flex items-center md:hidden cursor-pointer`} alt="Laburar Logo" />
+
+                                </a>
+                            </>
                         </Link>
                         <ul className="pt-6 w-full  xl:pr-2 ">
                             {Menus.map((Menu, index) => (

@@ -1,5 +1,4 @@
 import Head from 'next/head';
-
 import { UserProvider, useUser } from '../../lib/AuthContext';
 import { useRouter } from 'next/router'
 import Header from "../elements/Header";
@@ -12,9 +11,11 @@ import WorkRoundedIcon from '@mui/icons-material/WorkRounded';
 import PendingRoundedIcon from '@mui/icons-material/PendingRounded';
 import NavMobile from '../elements/NavMobile';
 import Link from 'next/link';
+import MainHead from './head/MainHead';
+import Image from 'next/image';
 
 
-const Layout = ({ user, loading = false, children, }) => {
+const Layout = ({ user, loading = false, children, title = 'Laburar', description = 'Plataforma web para encontrar y contratar prestadores de servicios' }) => {
 
     const router = useRouter()
     const Menus = [
@@ -31,41 +32,34 @@ const Layout = ({ user, loading = false, children, }) => {
     ];
     return (
         <UserProvider value={{ user, loading }}>
-            <Head>
-                <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-                <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-                <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-                <link rel="manifest" href="/site.webmanifest" />
-                <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
-                <meta name="msapplication-TileColor" content="#da532c" />
-                <meta name="theme-color" content="#ffffff" />
-                <link width="50" rel="icon" type="image/svg+xml" href="/Lavorar-logo-negativo.svg" />
-                <title>Laburar</title>
-            </Head>
+            <MainHead title={title} description={description} >
+
+            </MainHead>
 
 
             <main>
+
                 <div className="flex md:flex-row  ">
                     <div
-                        className={` w-20 xl:w-44
-                                 hidden md:flex z-40 lg:items-center xl:items-baseline flex-col bg-transparent border-0  text-gray-900 dark:text-white-ghost p-3 justify-between fixed pt-8 h-screen  `}
+                        className={` w-20 xl:w-60
+                                 hidden md:flex z-40 lg:items-center xl:items-baseline flex-col bg-transparent border-opacity-10 dark:border-opacity-10  border-r  border-gray-500 dark:border-gray-100  text-gray-900 dark:text-white-ghost p-3 justify-between fixed pt-8 h-screen  `}
                     >
                         <div className="flex flex-col gap-y-2 w-full">
-                            <Link href={'/'}>
+                            <Link href={'/'} className=''>
                                 <a
-                                    className=" cursor-pointer flex flex-row gap-x-2 justify-start items-center xl:ml-1 ">
-                                    <img
-                                        src="/Lavorar-logo-negativo.svg"
-                                        className={` w-11 xl:w-16  "
-                                    `}
-                                    />
+                                    className=" cursor-pointer  xl:ml-4 w-32 hidden xl:block ">
+                                    <Image src="/v1682985275/laburar-logo-horizontal.png" height={150} width={434} className={`flex items-center md:hidden cursor-pointer`} alt="Laburar Logo" />
 
-                                    <h1
-                                        className={`text-orange-brand origin-left hidden xl:block font-medium text-xl`}
-                                    >
-                                        LavorAr
-                                    </h1>
                                 </a>
+
+                            </Link>
+                            <Link href={'/'} className=''>
+                                <a
+                                    className=" cursor-pointer ml-2  xl:hidden ">
+                                    <Image src="/v1682460739/isologo-laborar.png" height={44} width={44} className={`flex items-center md:hidden cursor-pointer`} alt="Laburar Logo" />
+
+                                </a>
+
                             </Link>
                             <ul className="pt-6 w-full">
                                 {Menus.map((Menu, index) => (
@@ -110,10 +104,10 @@ const Layout = ({ user, loading = false, children, }) => {
                             </p>
                         </div>
                     </div>
-                    <div className={`md:pl-20 xl:pl-44  z-10   flex flex-row justify-center   w-full   md:flex-1  `}>
-                        <div className="w-full lg:w-[1200px] border-opacity-10 dark:border-opacity-10  border-r border-l  border-gray-500 dark:border-gray-100 ">
-                            <Header staticLayout={false} >
 
+                    <div className={`md:pl-20 xl:pl-60  z-10   flex flex-row justify-center   w-full   md:flex-1  `}>
+                        <div className="w-full lg:w-[1200px] border-opacity-10 dark:border-opacity-10  border-r  border-gray-500 dark:border-gray-100 ">
+                            <Header staticLayout={false} >
                             </Header>
                             <div className='pt-5 w-full h-[70%] mb-20 p-4  md:mb-0 '>
 

@@ -122,15 +122,16 @@ const Header = ({ staticLayout }) => {
 
   return (
     <>
-      <nav className={`bg-gray-50
-      dark:bg-[#13192b]
+      <nav className={`
        text-gray-900   dark:text-white-ghost dark:bg-opacity-95  backdrop-blur px-2 sm:px-4 p-0 sticky w-full z-50 top-0 py-1 left-0`}>
-        <div className={`container relative max-w-7xl flex ${staticLayout ? 'justify-between' : 'justify-between md:justify-end'}  h-16 items-center mx-auto `}>
-          <Link href="/"  >
-            <div className={`${staticLayout ? 'flex items-end w-36' : 'flex items-center md:hidden'}`}>
-              <Image src="/v1682460940/logo-hotizontal.png" height={150} width={434} className="mr-2 w-11" alt="LAvorar Logo" />
-              {/* <span className={" hidden md:block text-xl font-semibold whitespace-nowrap dark:text-white"}>aburar</span> */}
-            </div>
+        <div className={` relative flex ${staticLayout ? 'justify-between' : 'justify-between md:justify-end'}  h-16 items-center mx-auto `}>
+          <Link href="/" className='cursor-pointer' >
+            <a>
+              <div className={`${staticLayout ? 'flex items-end w-36' : 'flex items-center md:hidden w-36'} cursor-pointer`}>
+                <Image src="/v1682985275/laburar-logo-horizontal.png" height={150} width={434} className={`${staticLayout ? 'flex items-end w-36' : 'flex items-center md:hidden w-36'} cursor-pointer`} alt="LAvorar Logo" />
+                {/* <span className={" hidden md:block text-xl font-semibold whitespace-nowrap dark:text-white"}>aburar</span> */}
+              </div>
+            </a>
           </Link>
           <div className="flex md:order-2 items-center ">
 

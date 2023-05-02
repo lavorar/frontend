@@ -23,7 +23,7 @@ const Avatar = ({ width, desktopWidth, fontSize, user, other }) => {
                             />
                         </div>
                         <div className={`block md:hidden relative aspect-square cursor-pointer h-${width / 4} h-${width / 4} `}>
-                            {width}
+
                             <Image
                                 src={href + user?.avatar}
                                 alt={"Picture of the user " + user?.name}

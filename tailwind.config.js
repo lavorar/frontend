@@ -10,9 +10,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "orange-brand": "#FF8A00",
-        "orange-high": "#FFAA2B",
-        "orange-dark":"#FFD08A",
+        "orange-brand": "#FF784F",
+        "orange-high": "#FF7750",
+        "orange-dark": "#FF5F63",
         "orange-pastel": "#ff9a22",
         "white-ghost": "rgb(250,250,250)",
       },
