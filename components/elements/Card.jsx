@@ -19,7 +19,6 @@ const Card = ({ lender, authUser }) => {
   function getWordStr(str) {
     return str ? str.split(/\s+/).slice(0, 1) : '';
   }
-  console.log("lender", lender.categories)
   return (
     <div className="inline-block mt-3 text-gray-900  w-72 bg-gray-200 rounded-lg border border-gray-200 shadow-md ">
 

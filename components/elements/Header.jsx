@@ -127,11 +127,11 @@ const Header = ({ staticLayout }) => {
     <>
       <nav className={`
        text-gray-900   dark:text-white-ghost bg-gray-100
-      dark:bg-stone-950 px-4 sm:px-4 p-0 sticky w-full z-50 top-0 py-2 md:py-2 left-0 border-b border-slate-100/50 `}>
+      dark:bg-stone-950 px-4 sm:px-4 sticky w-full z-50 top-0 py-2 md:py-3 left-0 border-b border-slate-100/50 `}>
         <div className={` relative flex ${staticLayout ? 'justify-between' : 'justify-between md:justify-end'}  h-10 items-baseline md:items-center mx-auto `}>
           <Link href="/" className='cursor-pointer' >
             <a>
-              <div className={`${staticLayout ? 'flex items-end w-32 ' : 'flex items-center md:hidden w-32'} cursor-pointer`}>
+              <div className={`${staticLayout ? 'flex items-end w-36 ' : 'flex items-center md:hidden w-36'} cursor-pointer`}>
                 <Image src="/v1682985275/laburar-logo-horizontal.png" height={112} width={375} className={`flex items-center md:hidden cursor-pointer`} alt="Laburar Logo" />
                 {/* <span className={" hidden md:block text-xl font-semibold whitespace-nowrap dark:text-white"}>aburar</span> */}
               </div>
