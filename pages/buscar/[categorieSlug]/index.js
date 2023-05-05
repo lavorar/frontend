@@ -18,7 +18,6 @@ export default function SearchCategorie({ lenders, numberOfLenders, categorieSlu
     const getMoreLenders = async () => {
         let newlenders = await getLenders({
             start: lendersList.length,
-            populate: ['provincia', 'localidad', 'categories'],
             categorieSlug: categorieSlug
         })
         setlendersList(lenders => [...lenders, ...newlenders])
@@ -79,7 +78,6 @@ export async function getStaticProps({ params }) {
     const lenders = await getLenders({
         categorieSlug: categorieSlug,
         limit: 6,
-        populate: ['provincia', 'localidad']
     })
     const numberOfLenders = await getNumberOfLenders({ categorieSlug: categorieSlug, })
     return {

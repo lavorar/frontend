@@ -30,13 +30,13 @@ const NavMobile = ({ user }) => {
     }))
 
     return (
-        <nav className="bg-gray-50
-      dark:bg-stone-950 px-2 sm:px-4 py-2.5 fixed md:hidden w-full  z-10 bottom-0">
+        <nav className="bg-gray-50 border-t border-slate-100/50
+      dark:bg-stone-950 px-2 sm:px-4 py-1 fixed md:hidden w-full  z-10 bottom-0">
             <div className="container flex relative  justify-around items-center mx-auto px-2">
                 <div className='group'>
                     <IconWithButton
                         onClick={() => Router.push('/')}>
-                        <HomeRoundedIcon fontSize='large' />
+                        <HomeRoundedIcon fontSize='medium' />
                     </IconWithButton>
                 </div>
 
@@ -44,7 +44,7 @@ const NavMobile = ({ user }) => {
                     <IconWithButton
                         onClick={() => Router.push('/buscar')}>
                         <Badge color="primary">
-                            <SearchRoundedIcon fontSize='large' />
+                            <SearchRoundedIcon fontSize='medium' />
                         </Badge>
                     </IconWithButton>
                 </div>
@@ -58,7 +58,7 @@ const NavMobile = ({ user }) => {
                                 setunreadNotifications={setunreadNotifications}
                                 unreadNotifications={unreadNotifications}>
                                 <Badge badgeContent={unreadNotifications?.length} color="primary">
-                                    <NotificationsRoundedIcon fontSize='large' />
+                                    <NotificationsRoundedIcon fontSize='medium' />
                                 </Badge>
                             </NotificationDropdown>
                         </div>)
@@ -66,7 +66,7 @@ const NavMobile = ({ user }) => {
                 {/* <div className=''>
                     <IconWithButton>
                         <Badge badgeContent={4} color="primary">
-                            <ChatRoundedIcon fontSize='large' />
+                            <ChatRoundedIcon fontSize='medium' />
                         </Badge>
                     </IconWithButton>
                 </div> */}
@@ -74,7 +74,7 @@ const NavMobile = ({ user }) => {
                     <div className=''>
                         <IconWithButton
                             onClick={() => Router.push('/' + user.Slug)}>
-                            <PersonRoundedIcon fontSize='large' />
+                            <PersonRoundedIcon fontSize='medium' />
                         </IconWithButton>
                     </div>
                 }

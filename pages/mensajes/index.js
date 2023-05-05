@@ -1,7 +1,7 @@
 import axios from 'axios';
 import ChatBox from '../../components/chatapp/ChatBox';
 import Conversation from '../../components/chatapp/Conversation';
-import Layout from '../../components/Layouts/ChatLayout';
+import Layout from '../../components/Layouts/mainLayout';
 import { fetcher, getUser, getUserConversations, getUserCountConversations, getUserNotifications } from '../../lib/api';
 import { getTokenFromServerCookie } from '../../lib/auth';
 import { useUser } from '../../lib/AuthContext';
@@ -13,7 +13,7 @@ export default function Mensajes({ user }) {
 
     return (
         <Layout user={user}>
-            <div className='flex h-full  md:flex-auto md:flex-row justify-start rounded-sm border border-gray-900 dark:border-gray-100 border-opacity-30 dark:border-opacity-30  w-full '>
+            <div className='flex h-[calc(100dvh-5rem)]  md:flex-auto md:flex-row justify-start rounded-sm border border-gray-900 dark:border-gray-100 border-opacity-30 dark:border-opacity-30  w-full '>
                 <div className='flex w-full md:w-96 justify-center  border-gray-900 dark:border-gray-100 md:border-r border-opacity-30 dark:border-opacity-30  '>
                     <div className='w-full flex flex-col'>
                         {/* {

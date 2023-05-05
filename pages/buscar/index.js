@@ -12,11 +12,10 @@ import SkeletonsLendes from '../../components/Search/SkeletonsLendes';
 export default function Search({ lenders, numberOfLenders }) {
     const { user, loading } = useFetchUser()
     const [lendersList, setlenders] = useState(lenders)
-
+    console.log(lendersList)
     const getMoreLenders = async () => {
         let newlenders = await getLenders({
             start: lendersList.length,
-            populate: ['provincia', 'localidad', 'categories']
         })
         setlenders(lenders => [...lenders, ...newlenders])
     }
@@ -63,7 +62,6 @@ export async function getStaticProps({ req }) {
 
     const lenders = await getLenders({
         limit: 6,
-        populate: ['provincia', 'localidad']
     })
     const numberOfLenders = await getNumberOfLenders([])
     return {

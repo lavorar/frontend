@@ -30,7 +30,7 @@ export default function Example({ children, user }) {
                         <div className='w-full '>
 
                             <Menu.Button
-                                className={` ${user ? 'rounded-full  bg-gray-300 dark:bg-gray-700 h-9 md:h-[50px]dark:hover:bg-black' : 'px-2 py-2 inline-flex w-full justify-center rounded-full bg-gray-300 dark:bg-gray-700 dark:hover:bg-black h-auto  text-sm font-medium text-gray-900 dark:text-white-ghost hover:bg-gray-200  focus:outline-1 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75'}  ${open ? 'text-blue-600 dark:text-blue-500 dark:bg-gray-200' : ''} `}>
+                                className={` ${user ? 'rounded-full    h-9 md:h-[50px] dark:hover:bg-gray-800' : 'px-2 py-2 inline-flex w-full justify-center rounded-full   dark:hover:bg-gray-800 h-auto  text-sm font-medium text-gray-900 dark:text-white-ghost hover:bg-gray-200  focus:outline-1 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75'}  ${open ? 'text-blue-600 dark:text-blue-500 dark:bg-gray-700' : ''} `}>
                                 {children}
 
                             </Menu.Button>

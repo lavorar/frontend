@@ -65,207 +65,30 @@ export default function NotificationsComponent({ countUnRead, handleCountUnRead,
         }
     }) : [])
     return (
-        <div>{
+        <div className=' h-full'>{
             !isLoading ?
-                notifications.map((notification, index) => (
-                    <div key={index}
-                        className="px-1 py-1 ">
-                        <Menu.Item>
-                            {({ active, close }) => (
-                                <div
-                                    onMouseDown={(e) => { markAsRead(e, notification.id, notification, handleCountUnRead, countUnRead, notification.acepted) }}
-                                    id="toast-notification" className={`${active ? 'bg-gray-300 dark:bg-gray-700 dark:bg-100 ' : ' '}p-2 w-full  text-gray-900 bg-white rounded-lg shadow dark:bg-gray-800 dark:text-gray-300 cursor-pointer`} >
+                data?.length > 0 ?
+                    notifications.map((notification, index) => (
+                        <div key={index}
+                            className="px-1 py-1 ">
+                            <Menu.Item>
+                                {({ active, close }) => (
+                                    <div
+                                        onMouseDown={(e) => { markAsRead(e, notification.id, notification, handleCountUnRead, countUnRead, notification.acepted) }}
+                                        id="toast-notification" className={`${active ? 'bg-gray-300 dark:bg-gray-700 dark:bg-100 ' : ' '}p-2 w-full  text-gray-900 bg-white rounded-lg shadow dark:bg-gray-800 dark:text-gray-300 cursor-pointer`} >
 
-                                    <Notification user={notification.user_request} type={notification.type} notification={notification} countUnRead={countUnRead} handleCountUnRead={handleCountUnRead} />
-                                </div>
+                                        <Notification user={notification.user_request} type={notification.type} notification={notification} countUnRead={countUnRead} handleCountUnRead={handleCountUnRead} />
+                                    </div>
+                                )}
+                            </Menu.Item>
+                        </div>
 
-                                // <div
-                                //     onClick={(e) => { markAsRead(e, notification.id, notification, handleCountUnRead, countUnRead, notification.acepted) }}
-                                //     id="toast-notification" className={`${active ? 'bg-gray-300 dark:bg-gray-700 dark:bg-100 ' : ' '}p-2 w-full  text-gray-900 bg-white rounded-lg shadow dark:bg-gray-800 dark:text-gray-300 cursor-pointer`} >
-                                //     <div className="flex items-center">
 
-                                //         <Avatar width={48} fontSize={'medium'} desktopWidth={48} user={notification.user_request} />
-
-                                //         <div className='flex w-full flex-row justify-between items-center'>
-                                //             <div
-                                //                 className="ml-3 text-sm font-normal">
-                                //                 <div className="text-sm font-semibold text-gray-900 dark:text-white-ghost">{notification.user_request.name}</div>
-                                //                 <div className="text-sm font-normal">{'te acaba de puntuar con ' + notification.score + ' estrellas'}</div>
-                                //                 <span className="text-xs font-medium text-blue-600 dark:text-blue-300">{'hace ' + formatMyDate(notification.review_updatedAt)}</span>
-                                //             </div>
-
-                                //             <div
-                                //                 className='flex gap-2'>
-                                //                 {!notification.read && <CircleRoundedIcon
-                                //                     sx={{ color: '#3b82f6' }}
-                                //                     fontSize='small' />
-                                //                 }
-                                //                 <MarkAsUnreadRoundedIcon
-                                //                     onClick={(e) => { markAsNotRead(e, notification.id, notification, handleCountUnRead, countUnRead) }}
-                                //                     fontSize='small' />
-                                //             </div>
-
-                                //         </div>
-                                //     </div>
-                                // </div>
-                                // ||
-                                // notification?.type === 'Hire' &&
-                                // <div
-
-                                //     id="toast-notification" className={`${active ? 'bg-gray-300 dark:bg-gray-700 dark:bg-100 ' : ' '}p-2 w-full  text-gray-900 bg-white rounded-lg shadow dark:bg-gray-800 dark:text-gray-300 cursor-pointer`} >
-                                //     <div className="flex items-center">
-                                //         <div
-                                //             onClick={(e) => { markAsRead(e, notification.id, notification, handleCountUnRead, countUnRead, notification.acepted) }}
-                                //             className="inline-block relative shrink-0">
-                                //             <Avatar width={48} fontSize={'medium'} desktopWidth={48} user={notification.user_request} />
-                                //         </div>
-                                //         <div onClick={(e) => { markAsRead(e, notification.id, notification, handleCountUnRead, countUnRead, notification.acepted) }} className='ml-3 flex w-full flex-row gap-2 items-center '>
-                                //             {notification.acepted ?
-                                //                 <div className='flex w-full flex-col  justify-start items-start'>
-
-                                //                     <div className=" text-sm font-normal">
-                                //                         <div className="text-sm font-semibold text-gray-900 dark:text-white-ghost">{notification.user_request.name + ' te contrato'}</div>
-                                //                     </div>
-                                //                     <span className=" mt-2 text-xs font-medium text-blue-600 dark:text-blue-300">{'hace ' + formatMyDate(notification.review_updatedAt)}</span>
-                                //                 </div>
-                                //                 :
-                                //                 <div className='flex w-full flex-col  justify-start items-start'>
-
-                                //                     <div className=" text-sm font-normal">
-                                //                         <div className="text-sm font-semibold text-gray-900 dark:text-white-ghost">{notification.user_request.name}</div>
-                                //                         <div className="text-sm font-normal">{'Quiere contratarte'}</div>
-
-                                //                     </div>
-                                //                     <div className="flex flex-row gap-2 mt-1">
-                                //                         <div onClick={(e) => handleAceptService(e, notification.id, index, notification, readNotifications, setreadNotifications, setunreadNotifications)}>
-                                //                             <button className="inline-flex justify-center w-full px-2 py-1.5 text-xs font-medium text-center text-gray-900 bg-orange-brand rounded-lg hover:bg-orange-high">Aceptar</button>
-                                //                         </div>
-                                //                         <div>
-                                //                             <button href="#" className="inline-flex justify-center w-full px-2 py-1.5 text-xs font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-600 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700">Ahora no</button>
-                                //                         </div>
-                                //                     </div>
-
-                                //                     <span className=" mt-2 text-xs font-medium text-blue-600 dark:text-blue-300">{'hace ' + formatMyDate(notification.review_updatedAt)}</span>
-                                //                 </div>}
-                                //             <div
-                                //                 className='flex gap-2'>
-                                //                 {notification.read ?
-                                //                     <CheckCircleRoundedIcon
-                                //                         fontSize='small' />
-                                //                     :
-                                //                     <CircleRoundedIcon
-                                //                         sx={{ color: 'blue' }}
-                                //                         fontSize='small' />
-                                //                 }
-                                //                 <MarkAsUnreadRoundedIcon
-                                //                     onClick={(e) => { markAsNotRead(e, notification.id, notification, handleCountUnRead, countUnRead) }}
-                                //                     fontSize='small' />
-                                //             </div>
-                                //         </div>
-                                //     </div>
-                                // </div>
-                                // ||
-                                // notification?.type === 'FriendRequest' &&
-                                // <div
-
-                                //     id="toast-notification" className={`${active ? 'bg-gray-300 dark:bg-gray-700 dark:bg-100 ' : ' '} p-2 w-full  text-gray-900 bg-white rounded-lg shadow dark:bg-gray-800 dark:text-gray-300 cursor-pointer`} >
-                                //     <div className="flex items-center">
-                                //         <div
-                                //             onClick={(e) => { markAsRead(e, notification.id, notification, handleCountUnRead, countUnRead, notification.acepted) }}
-                                //             className="inline-block relative shrink-0">
-                                //             <Avatar width={48} fontSize={'medium'} desktopWidth={48} user={notification.user_request} />
-                                //         </div>
-                                //         <div onClick={(e) => { markAsRead(e, notification.id, notification, handleCountUnRead, countUnRead, notification.acepted) }} className='ml-3 flex w-full flex-row gap-2 items-center '>
-                                //             {notification.acepted ?
-                                //                 <div className='flex w-full flex-col  justify-start items-start'>
-
-                                //                     <div className=" text-sm font-normal">
-                                //                         <div className="text-sm font-semibold text-gray-900 dark:text-white-ghost">{notification.user_request.name + ' te sigue'}</div>
-                                //                     </div>
-                                //                     <span className=" mt-2 text-xs font-medium text-blue-600 dark:text-blue-300">{'hace ' + formatMyDate(notification.review_updatedAt)}</span>
-                                //                 </div>
-                                //                 :
-                                //                 <div className='flex w-full flex-col  justify-start items-start'>
-
-                                //                     <div className=" text-sm font-normal">
-                                //                         <div className="text-sm font-semibold text-gray-900 dark:text-white-ghost">{notification.user_request.name}</div>
-                                //                         <div className="text-sm font-normal">{'Quiere Seguirte'}</div>
-
-                                //                     </div>
-                                //                     <div className="flex flex-row gap-2 mt-1">
-                                //                         <div onClick={(e) => handleAceptService(e, notification.id, index, notification, readNotifications, setreadNotifications, setunreadNotifications)}>
-                                //                             <button className="inline-flex justify-center w-full px-2 py-1.5 text-xs font-medium text-center text-gray-900 bg-orange-brand rounded-lg hover:bg-orange-high">Aceptar</button>
-                                //                         </div>
-                                //                         <div>
-                                //                             <button href="#" className="inline-flex justify-center w-full px-2 py-1.5 text-xs font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-600 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700">Ahora no</button>
-                                //                         </div>
-                                //                     </div>
-
-                                //                     <span className=" mt-2 text-xs font-medium text-blue-600 dark:text-blue-300">{'hace ' + formatMyDate(notification.review_updatedAt)}</span>
-                                //                 </div>}
-                                //             <div
-                                //                 className='flex gap-2'>
-                                //                 {notification.read ?
-                                //                     <CheckCircleRoundedIcon
-                                //                         fontSize='small' />
-                                //                     :
-                                //                     <CircleRoundedIcon
-                                //                         sx={{ color: 'blue' }}
-                                //                         fontSize='small' />
-                                //                 }
-                                //                 <button onClick={(e) => { markAsNotRead(e, notification.id, notification, handleCountUnRead, countUnRead) }}>
-                                //                     <MarkAsUnreadRoundedIcon
-
-                                //                         fontSize='small' />no leido
-                                //                 </button>
-                                //             </div>
-                                //         </div>
-                                //     </div>
-                                // </div>
-                                // ||
-                                // notification?.type === 'Reply' &&
-                                // <div
-
-                                //     id="toast-notification" className={`${active ? 'bg-gray-300 dark:bg-gray-700 dark:bg-100 ' : ' '}p-2 w-full  text-gray-900 bg-white rounded-lg shadow dark:bg-gray-800 dark:text-gray-300 cursor-pointer`} >
-                                //     <div className="flex items-center">
-                                //         <div
-                                //             onClick={(e) => { markAsRead(e, notification.id, notification, handleCountUnRead, countUnRead, notification.acepted) }}
-                                //             className="inline-block relative shrink-0">
-                                //             <Avatar width={48} fontSize={'medium'} desktopWidth={48} user={notification.user_request} />
-                                //         </div>
-                                //         <div onClick={(e) => { markAsRead(e, notification.id, notification, handleCountUnRead, countUnRead, notification.acepted) }} className='ml-3 flex w-full flex-row gap-2 items-center '>
-
-                                //             <div className='flex w-full flex-col  justify-start items-start'>
-
-                                //                 <div className=" text-sm font-normal">
-                                //                     <div onClick={(e) => { router.push('/' + notification.user_request.Slug) }} className="text-sm font-semibold text-gray-900 dark:text-white-ghost">{notification.user_request.name}</div>
-                                //                     <div className="text-sm font-normal">{'Acepto que lo contrataras, ahora puedes reseñarlo!'}</div>
-
-                                //                 </div>
-                                //                 <span className=" mt-2 text-xs font-medium text-blue-600 dark:text-blue-300">{'hace ' + formatMyDate(notification.review_updatedAt)}</span>
-                                //             </div>
-                                //             <div
-                                //                 className='flex gap-2'>
-                                //                 {notification.read ?
-                                //                     <CheckCircleRoundedIcon
-                                //                         fontSize='small' />
-                                //                     :
-                                //                     <CircleRoundedIcon
-                                //                         fontSize='small' />
-                                //                 }
-                                //                 <MarkAsUnreadRoundedIcon
-                                //                     onClick={(e) => { markAsNotRead(e, notification.id, notification, handleCountUnRead, countUnRead) }}
-                                //                     fontSize='small' />
-                                //             </div>
-                                //         </div>
-                                //     </div>
-                                // </div>
-
-                            )}
-                        </Menu.Item>
+                    ))
+                    :
+                    <div className="flex flex-row items-center animate-pulse h-full mt-4 space-x-3  w-full px-5" >
+                        No hay notificaciones
                     </div>
-
-                ))
                 :
                 rows.map((row, index) => (
                     <div key={index} role='status' className="flex flex-row items-center animate-pulse  mt-4 space-x-3  w-full px-5">

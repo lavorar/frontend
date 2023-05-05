@@ -48,7 +48,7 @@ const Layout = ({ user, loading = false, children, title = 'Laburar', descriptio
                             <Link href={'/'} className=''>
                                 <a
                                     className=" cursor-pointer  xl:ml-4 w-32 hidden xl:block ">
-                                    <Image src="/v1682985275/laburar-logo-horizontal.png" height={150} width={434} className={`flex items-center md:hidden cursor-pointer`} alt="Laburar Logo" />
+                                    <Image src="/v1682985275/laburar-logo-horizontal.png" height={112} width={375} className={`flex items-center md:hidden cursor-pointer`} alt="Laburar Logo" />
 
                                 </a>
 
@@ -106,7 +106,7 @@ const Layout = ({ user, loading = false, children, title = 'Laburar', descriptio
                     </div>
 
                     <div className={`md:pl-20 xl:pl-60  z-10   flex flex-row justify-center   w-full   md:flex-1  `}>
-                        <div className="w-full lg:w-[1200px] border-opacity-10 dark:border-opacity-10  border-r  border-gray-500 dark:border-gray-100 ">
+                        <div className="w-full border-opacity-10 dark:border-opacity-10  border-r  border-gray-500 dark:border-gray-100 ">
                             <Header staticLayout={false} >
                             </Header>
                             <div className='pt-5 w-full h-[70%] mb-20 p-4  md:mb-0 '>
@@ -116,7 +116,7 @@ const Layout = ({ user, loading = false, children, title = 'Laburar', descriptio
 
                         </div>
                         {/* <AppHeader /> */}
-                        <div className={'xl:w-[400px]  xl:flex-col hidden xl:flex  xl:justify-center xl:items-center right-0 bg-transparent ml-2 p-1 '} >
+                        <div className={'xl:w-[500px]  xl:flex-col hidden xl:flex  xl:justify-center xl:items-center right-0 bg-transparent ml-2 p-1 '} >
                             <div className='flex flex-col w-full items-center justify-center pt-64' >
                                 {/* <Card lender={user} authUser={user} />
                                 <Card lender={user} authUser={user} />

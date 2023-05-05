@@ -7,6 +7,7 @@ import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 import NotificationsRoundedIcon from '@mui/icons-material/NotificationsRounded';
+import NotificationsNoneRoundedIcon from '@mui/icons-material/NotificationsNoneRounded';
 import ChatRoundedIcon from '@mui/icons-material/ChatRounded';
 import { useRouter } from 'next/router';
 import { getTokenFromLocalCookie, unsetToken } from '../../lib/auth';
@@ -120,26 +121,29 @@ const Header = ({ staticLayout }) => {
     setopenNotification(false)
   }
 
+  const [focusNotification, setfocusNotification] = useState(false)
+
   return (
     <>
       <nav className={`
-       text-gray-900   dark:text-white-ghost dark:bg-opacity-95  backdrop-blur px-2 sm:px-4 p-0 sticky w-full z-50 top-0 py-1 left-0`}>
-        <div className={` relative flex ${staticLayout ? 'justify-between' : 'justify-between md:justify-end'}  h-16 items-center mx-auto `}>
+       text-gray-900   dark:text-white-ghost bg-gray-100
+      dark:bg-stone-950 px-4 sm:px-4 p-0 sticky w-full z-50 top-0 py-2 md:py-2 left-0 border-b border-slate-100/50 `}>
+        <div className={` relative flex ${staticLayout ? 'justify-between' : 'justify-between md:justify-end'}  h-10 items-baseline md:items-center mx-auto `}>
           <Link href="/" className='cursor-pointer' >
             <a>
-              <div className={`${staticLayout ? 'flex items-end w-36' : 'flex items-center md:hidden w-36'} cursor-pointer`}>
-                <Image src="/v1682985275/laburar-logo-horizontal.png" height={150} width={434} className={`${staticLayout ? 'flex items-end w-36' : 'flex items-center md:hidden w-36'} cursor-pointer`} alt="LAvorar Logo" />
+              <div className={`${staticLayout ? 'flex items-end w-32 ' : 'flex items-center md:hidden w-32'} cursor-pointer`}>
+                <Image src="/v1682985275/laburar-logo-horizontal.png" height={112} width={375} className={`flex items-center md:hidden cursor-pointer`} alt="Laburar Logo" />
                 {/* <span className={" hidden md:block text-xl font-semibold whitespace-nowrap dark:text-white"}>aburar</span> */}
               </div>
             </a>
           </Link>
-          <div className="flex md:order-2 items-center ">
+          <div className="flex md:order-2 items-baseline md:items-center ">
 
             <div className='mr-2 hidden md:block '>
               <button
                 type="button"
                 onClick={(e) => router.replace('/donate')}
-                className="focus:outline-none text-gray-900 bg-orange-brand hover:bg-yellow-500 focus:ring-2 focus:ring-orange-high dark:focus:ring-orange-high font-medium rounded-lg text-base px-3 py-2 mr-2 my-2 "
+                className="focus:outline-none text-gray-900 bg-orange-brand hover:bg-yellow-500 focus:ring-2 focus:ring-orange-high dark:focus:ring-orange-high font-medium rounded-lg text-sm px-3 py-2 mr-2  "
               >
                 Dona
               </button>
@@ -148,7 +152,7 @@ const Header = ({ staticLayout }) => {
               <button
                 type="button"
                 onClick={(e) => router.replace('/donate')}
-                className="focus:outline-none text-gray-900 bg-orange-brand hover:bg-yellow-500 focus:ring-2 focus:ring-orange-high dark:focus:ring-orange-high font-medium rounded-lg text-base px-3 py-2 mr-2 my-2 "
+                className="focus:outline-none text-gray-900 bg-orange-brand hover:bg-yellow-500 focus:ring-2 focus:ring-orange-high dark:focus:ring-orange-high font-medium rounded-lg text-sm px-3 py-2 mr-2  "
               >
                 Anunciate
               </button>
@@ -158,9 +162,7 @@ const Header = ({ staticLayout }) => {
               user && (
                 <div className='mr-2 group  '>
                   <IconWithButton
-                    onClick={() => {
-                      router.push('/mensajes')
-                    }}
+
                   >
                     <Badge badgeContent={unreadNotifications?.length} color="primary">
                       <ChatRoundedIcon sx={{
@@ -175,19 +177,27 @@ const Header = ({ staticLayout }) => {
             }
             {
               user && (
-                <div className='mr-2 hidden md:block '>
+                <div onClick={() => { setfocusNotification((prev) => !prev) }} className='mr-2 hidden md:block '>
                   <NotificationDropdown
                     user={user}
 
                     setunreadNotifications={setunreadNotifications}
                     unreadNotifications={unreadNotifications}>
                     <Badge badgeContent={unreadNotifications?.length} color="primary">
-                      <NotificationsRoundedIcon sx={{
-                        fontSize: '24px',
-                        '@media (min-width: 768px)': {
-                          fontSize: '35px',
-                        },
-                      }} />
+                      {!focusNotification ?
+                        <NotificationsNoneRoundedIcon className='group-focus:fill-white' sx={{
+                          fontSize: '24px',
+                          '@media (min-width: 768px)': {
+                            fontSize: '35px',
+                          },
+                        }} />
+                        :
+                        <NotificationsRoundedIcon className='group-focus:fill-white' sx={{
+                          fontSize: '24px',
+                          '@media (min-width: 768px)': {
+                            fontSize: '35px',
+                          },
+                        }} />}
                     </Badge>
                   </NotificationDropdown>
                 </div>)
@@ -202,6 +212,11 @@ const Header = ({ staticLayout }) => {
                     fontSize: '24px',
                     '@media (min-width: 768px)': {
                       fontSize: '35px',
+                    },
+                    "&:hover": {
+                      "fill": {
+                        color: '#000',
+                      }
                     },
                   }} />
                 }

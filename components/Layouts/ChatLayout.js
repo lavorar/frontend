@@ -22,6 +22,7 @@ import NavMobile from '../elements/NavMobile';
 import { getTokenFromLocalCookie, getTokenFromServerCookie } from '../../lib/auth';
 import axios from 'axios';
 import Link from 'next/link';
+import Image from 'next/image';
 
 
 const Layout = ({ user, loading = false, children }) => {
@@ -74,7 +75,7 @@ const Layout = ({ user, loading = false, children }) => {
                             <>
                                 <a
                                     className=" cursor-pointer  xl:ml-4 w-32 hidden xl:flex">
-                                    <Image src="/v1682985275/laburar-logo-horizontal.png" height={150} width={434} className={`flex items-center md:hidden cursor-pointer`} alt="Laburar Logo" />
+                                    <Image src="/v1682985275/laburar-logo-horizontal.png" height={112} width={375} className={`flex items-center md:hidden cursor-pointer`} alt="Laburar Logo" />
 
                                 </a>
                                 <a

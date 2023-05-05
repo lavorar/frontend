@@ -210,7 +210,8 @@ const HomeSearchBar = (props) => {
 
     return (
         <form onSubmit={handleSubmit(search)} className='max-w-5xl mt-8 h-44 md:h-auto w-full md:sticky md:top-[4.5rem] md:z-40'>
-            <div className="inline-flex md:flex-row gap-y-4 flex-col items-center bg-transparent filter bg-opacity-90 backdrop-blur-md dark:bg-opacity-90 dark:backdrop-blur-md text-gray-300 justify-between p-5 md:pl-5 md:pr-1  md:border-2 h-full md:h-16 w-full py-1 md:rounded-full border-gray-900 dark:border-gray-200" >
+            <div className="inline-flex md:flex-row gap-y-4 flex-col items-center bg-gray-100/30
+      dark:bg-stone-950/75 filter  backdrop-blur-md  dark:backdrop-blur-md text-gray-300 justify-between p-5 md:pl-5 md:pr-1  md:border-2 h-full md:h-16 w-full py-1 md:rounded-full border-gray-900 dark:border-gray-200" >
                 <div
                     className='flex flex-col justify-center w-full md:w-1/2 h-full  border-gray-900 rounded-full dark:border-white-ghost border md:border-0 md:rounded-none  md:mr-2 text-black dark:text-white-ghost'
                 >

@@ -75,7 +75,7 @@ export default function NotificationDropdown({ children, up }) {
                         <div>
 
                             <Menu.Button
-                                className={`  ${open ? 'text-blue-600 dark:text-blue-500 dark:bg-gray-200' : ''} inline-flex w-full justify-center rounded-full bg-transparent dark:bg-transparent  dark:hover:bg-black px-2 py-2 text-sm font-medium text-gray-800 dark:text-white-ghost hover:bg-gray-200  focus:outline-1 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}>
+                                className={`  ${open ? 'text-blue-600 dark:text-blue-500 dark:bg-gray-200' : ''} inline-flex w-full justify-center rounded-full bg-transparent dark:bg-transparent  dark:hover:scale-110 px-2 py-2 text-sm font-medium text-gray-800 dark:text-white-ghost group hover:scale-110 transition-all focus:outline-1 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}>
                                 <Badge badgeContent={isSuccess ? countUnRead : null} color="primary">
                                     {children}
                                 </Badge>
@@ -94,7 +94,7 @@ export default function NotificationDropdown({ children, up }) {
                             leaveFrom="transform opacity-100 scale-100"
                             leaveTo="transform opacity-0 scale-95"
                         >
-                            <Menu.Items className={`${up && '-top-7 transform h-[calc(100vh-138px)] -translate-y-full absolute -left-2 right-0 w-screen'} overflow-x-hidden max-h-[calc(100vh-138px)] md:max-h-[500px] overflow-y-auto top-14 md:top-12 md:absolute right-0 md:-right-0 z-30 mt-4 md:w-96 origin-top-right divide-y divide-gray-200 rounded-md bg-white-ghost dark:bg-gray-800 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch`}>
+                            <Menu.Items className={`${up && '-top-7 transform h-[calc(100vh-138px)] -translate-y-full absolute -left-2 right-0 w-screen'} overflow-x-hidden max-h-[calc(100vh-138px)] md:h-[500px] overflow-y-auto top-14 md:top-12 md:absolute right-0 md:-right-0 z-30 mt-4 md:w-96 origin-top-right divide-y divide-gray-200 rounded-md bg-white-ghost dark:bg-gray-800 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch`}>
                                 <NotificationsComponent
                                     countUnRead={countUnRead}
                                     handleCountUnRead={handleCountUnRead} notifications={notifications} setnotifications={setnotifications} open={open} />
